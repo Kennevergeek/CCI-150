@@ -1,0 +1,15 @@
+Write a method to decide if two strings are anagrams or not.
+
+bool anagrams(string A, string B)
+{
+  if(A.length()!= B.length())
+    return false;
+  if(A==""||B=="")
+    return false;
+  std::sort(A.begin(),A.end());
+  std::sort(B.begin(),B.end());
+  if(A==B)
+    return true;
+  else
+    return false;
+}
