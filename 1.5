@@ -1,0 +1,43 @@
+Wrtie a method to remove all duplicates from a string. (You are not allowed to use additional array/string)
+
+string removeDuplicates(string s)
+{
+  if(s.length()<2)
+    return s;
+  int pos = 0;
+  for( int i = 0; i<s.length(); i++)
+    {
+      if(s[1]!='\0')
+        {
+          s[pos++] = s[i];
+          for[int j= i+1; j<s.length();j++)
+            if[s[j]==s[i])
+              s[j] = '\0';
+        }
+    }
+    s[pos] = '\0';
+  return s;
+}
+
+
+If we are allowed to use addtional data structure. Lets create a array for ASCII to record its counts.
+
+void removeDuplicates( string s)
+{
+  if(s.length()<2)
+    return;
+  bool c[256];
+  memset(c,0,sizeof(c));
+  int p = 0;
+  for (int i= 0;i<s.length();i++)
+  {
+    if(!c[s[i]])
+      {
+        s[p++] = s[i];
+        c[s[i]] = true;
+      }
+  }
+  s[p] = '\0';
+}
+          
+          
