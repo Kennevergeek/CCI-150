@@ -13,3 +13,29 @@ bool anagrams(string A, string B)
   else
     return false;
 }
+The algorithm above has time complexity O(nlgn).
+Now lets do a O(n) one
+
+bool anagram(string a, string b)
+{
+	int c[256];
+	memset(c, 0, sizeof(c));
+	if (a.length() != b.length())
+		return false;
+	int len = a.length();
+	for (int i = 0; i < len; i++)
+	{
+		int v = (int)a[i];
+		if (v) c[v]++;
+	}
+	for (int j = 0; j < len; j++)
+	{
+		int val = (int)b[j];
+		if (val) c[val]--;
+	}
+	for (int k = 0; k < 256; k++)
+	{
+		if (c[k] != 0)
+			return false;
+	}
+}
