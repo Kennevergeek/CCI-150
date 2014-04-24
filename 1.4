@@ -1,22 +1,21 @@
 Write a method to replace all spaces in a string with ‘%20'.
 
-vector<string> replaceSpace( vector<string> &res, string s)
+vector<string> replaceSpace(vector<string> &res, string s)
 {
-  int len = s.length();
-  if(len<1)
-    return -1;
-    
-  for( int i=0; i<len; i++)
-  { 
-    if(s[i]!=" ")
-      {
-        res[i]=s[i];
-      }
-    else
-      {  
-        res.push_back(" ");
-        i+=2;
-      }
-  }
-  return res;
+	int len = s.length();
+	int p = 0;
+
+	for (int i = 0; i<len; i++)
+	{
+		if (s[i] != ' ')
+		{
+			res[p] = s[i];
+		}
+		else
+		{
+			res.push_back("%20");
+			p += 3;
+		}
+	}
+	return res;
 }
